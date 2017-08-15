@@ -14,7 +14,7 @@
   </p>
   <small>
     <span>
-      <%= link_to pluralize(post.comments.size, "comment") %>
+      <%= link_to(pluralize(post.comments.size, "comment"), post_path(post)) %>
     </span>
   </small>
 </div>
