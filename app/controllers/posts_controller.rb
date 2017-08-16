@@ -18,6 +18,12 @@ class PostsController < ApplicationController
   end
   
   def update
+    if @post.update(post_params)
+      flash[:notice] = "Your post was updated"
+      redirect_to post_path(@post)
+    else
+      render :new
+    end
   end
 
   private
