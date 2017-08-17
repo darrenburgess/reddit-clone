@@ -1,0 +1,8 @@
+= render 'shared/content_title', title: "Post Categories"
+
+- @categories.each do |category|
+  .well.span8
+    %p
+      = category.name
+      %span.pull-right
+        = link_to "edit", edit_category_path(category)

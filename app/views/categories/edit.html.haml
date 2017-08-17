@@ -1,0 +1,9 @@
+= render 'shared/content_title', title: "Edit Category"
+
+.well
+  = form_for @category do |f|
+    .control-group
+      = f.label :name
+      = f.text_field :name
+    .control-group
+      = f.submit class: 'btn btn primary'
