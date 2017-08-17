@@ -4,4 +4,9 @@ class Post < ActiveRecord::Base
 
   has_many :category_posts
   has_many :categories, through: :category_posts
+
+  validates :url, presence: true
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :creator, presence: true
 end
