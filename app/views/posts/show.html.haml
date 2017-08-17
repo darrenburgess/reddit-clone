@@ -1,6 +1,12 @@
 %p.pull-right= link_to "Edit this post", edit_post_path
 = render 'posts/badges', post: @post
+
 %p.lead= @post.title
 %hr/
+
 %p= @post.description
 %hr/
+
+= render 'comments/form'
+
+= render 'comments/comment', comments: @post.reload.comments

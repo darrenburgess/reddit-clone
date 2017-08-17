@@ -1,0 +1,6 @@
+= form_for [@post, @comment] do |f|
+  .control-group
+    = f.label :body, 'Leave a Comment'
+    = f.text_area :body, rows: 3, class: 'span4'
+  .control-group
+    = f.submit "Add Comment", class: 'btn btn-primary'
