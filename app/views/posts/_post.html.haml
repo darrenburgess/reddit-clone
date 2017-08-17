@@ -1,0 +1,14 @@
+.span8.well
+  %span.badge Badge1
+  %span.badge Badge2
+  %h4
+    = link_to post.title, post.url
+  %p= post.description
+  %p
+    %span.quiet Posted by
+    = link_to post.creator.username, "#"
+    %small
+      at #{post.created_at}
+  %small
+    %span
+      = link_to(pluralize(post.comments.size, "comment"), post_path(post))
