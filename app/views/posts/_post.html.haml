@@ -1,6 +1,5 @@
 .span8.well
-  %span.badge Badge1
-  %span.badge Badge2
+  = render 'posts/badges', post: post
   %h4
     = link_to post.title, post.url
   %p= post.description
