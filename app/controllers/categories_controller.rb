@@ -1,14 +1,23 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:edit, :update]
+  before_action :set_categories, only: [:index, :edit, :new, :create]
 
   def index
-    @categories = Category.all
   end
 
   def new
+    @category = Category.new
   end
 
   def create
+    @category = Category.new(category_params)
+
+    if @category.save
+      flash[:notice] = "New category created"
+      redirect_to categories_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,6 +36,10 @@ class CategoriesController < ApplicationController
 
   def set_category
     @category = Category.find(params[:id])
+  end
+
+  def set_categories
+    @categories = Category.all
   end
 
   def category_params
