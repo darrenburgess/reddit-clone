@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update]
+  before_action :set_categories, only: [:index, :new, :create, :show]
 
   def index
     @posts = Post.all
-    @categories = Category.all
   end
 
   def show
@@ -16,6 +16,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.creator = User.first # TODO: use logged in user
 
     if @post.save
       flash[:notice] = "Your post was created"
@@ -43,7 +44,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
+  def set_categories
+    @categories = Category.all
+  end
+
   def post_params
-    params.require(:post).permit(:url, :title, :description)
+    params.require(:post).permit(:url, :title, :description, category_ids: [])
   end
 end

@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     @comment.author = User.first # TODO: convert to logged in user
+    @categories = Category.all
 
     if @comment.save
       flash[:notice] = "Your comment was created"
