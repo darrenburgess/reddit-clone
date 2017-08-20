@@ -1,8 +1,12 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:edit, :update]
+  before_action :set_category, only: [:show, :edit, :update]
   before_action :set_categories, only: [:index, :edit, :new, :create]
 
   def index
+  end
+
+  def show
+    @posts = @category.posts 
   end
 
   def new

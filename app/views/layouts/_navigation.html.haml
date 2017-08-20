@@ -2,20 +2,4 @@
   %li
     = link_to "Postit!", root_path, :class => 'brand'
 
-.nav_item
-  .dropdown
-    %a.btn.btn-small.dropdown-toggle{data: {toggle: "dropdown"}}
-      Categories
-      %span.caret
-    %ul.dropdown-menu
-      - @categories.each do |category|
-        %li
-          = link_to category.name, category_path(category.id)
-      %li.divider
-      %li
-        = link_to new_category_path do
-          %i.icon-plus
-          New Category
-
-.nav_item
-  = link_to "New Post", new_post_path, class: "btn btn-success btn-small"
+= render 'layouts/categories_menu'
