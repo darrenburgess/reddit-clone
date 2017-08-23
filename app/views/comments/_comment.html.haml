@@ -4,4 +4,4 @@
     %br
     %span.quiet by
     = link_to comment.author.username, "#"  # TODO: add link here
-    %small at #{comment.created_at}
+    %small at #{friendly_date(comment.created_at)}

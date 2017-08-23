@@ -1,13 +1,13 @@
 .span8.well
   = render 'posts/badges', post: post
   %h4
-    = link_to post.title, post.url
+    = link_to post.title, full_url(post.url)
   %p= post.description
   %p
     %span.quiet Posted by
     = link_to post.creator.username, "#"
     %small
-      at #{post.created_at}
+      at #{friendly_date(post.created_at)}
   %small
     %span
       = link_to(pluralize(post.comments.size, "comment"), post_path(post))
