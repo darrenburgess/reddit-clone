@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
     flash[:error] = "You must be logged in to do that"
     redirect_to root_path
   end
+
+  def set_categories
+    @categories = Category.all
+  end
 end

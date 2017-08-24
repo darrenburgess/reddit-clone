@@ -45,10 +45,6 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def set_categories
-    @categories = Category.all
-  end
-
   def post_params
     params.require(:post).permit(:url, :title, :description, category_ids: [])
   end

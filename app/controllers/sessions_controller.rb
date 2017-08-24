@@ -22,10 +22,4 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to posts_path
   end
-
-  private
-
-  def set_categories
-    @categories = Category.all
-  end
 end
