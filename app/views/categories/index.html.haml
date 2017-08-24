@@ -4,5 +4,6 @@
   .well.span8
     %p
       = category.name
-      %span.pull-right
-        = link_to "edit", edit_category_path(category)
+      - if logged_in?
+        %span.pull-right
+          = link_to "edit", edit_category_path(category)

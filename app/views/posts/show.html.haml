@@ -1,4 +1,6 @@
-%p.pull-right= link_to "Edit this post", edit_post_path(@post)
+- if logged_in?
+  %p.pull-right= link_to "Edit this post", edit_post_path(@post)
+
 = render 'posts/badges', post: @post
 
 %p.lead= @post.title
@@ -7,8 +9,8 @@
 %p= @post.description
 %hr/
 
-= render 'shared/errors', obj: @comment
-
-= render 'comments/form'
+- if logged_in?
+  = render 'shared/errors', obj: @comment
+  = render 'comments/form'
 
 = render 'comments/comment', comments: @post.reload.comments

@@ -1,0 +1,12 @@
+= render 'shared/content_title', title: "Log in"
+
+= form_tag '/login' do
+  .well
+    .control-group
+      = label_tag :username
+      = text_field_tag :username, params[:username] || '', autofocus: true
+    .control-group
+      = label_tag :password
+      = password_field_tag :password, params[:password] || ''
+    .control-group
+      = submit_tag "Log in", class: 'btn btn-primary'
