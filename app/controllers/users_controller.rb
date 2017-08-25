@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  before_action :set_categories, only: [:show, :new, :create, :edit]
+  before_action :set_categories, only: [:show, :new, :create, :edit, :update]
 
   def show
   end
